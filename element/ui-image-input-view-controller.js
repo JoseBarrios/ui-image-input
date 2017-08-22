@@ -3,7 +3,7 @@ const uiImageInputTemplate = uiImageInputDocument.ownerDocument.querySelector('#
 
 class UIImageInput extends HTMLElement{
 
-	static get observedAttributes(){ return ['src']; }
+	static get observedAttributes(){ return ['src', 'preview']; }
 
   constructor(model){
     super();
@@ -48,8 +48,9 @@ class UIImageInput extends HTMLElement{
 		 options.accept = "image/*";
 		 options.minFiles = 1;
 		 options.maxFiles = 1;
-		 options.startUploadingWhenMaxFilesReached = true;
 		 options.uploadInBackground = true;
+		 //options.startUploadingWhenMaxFilesReached = true;
+		 //options.disableTransformer = true;
 
 		 client.pick(options).then((result) => {
 			 this.src = result.filesUploaded[0].url
@@ -63,6 +64,9 @@ class UIImageInput extends HTMLElement{
 		switch(attrName){
 			case 'src':
 				break;
+			case 'preview':
+				this.preview = (newVal === 'true')
+				break;
 			default:
 				console.warn(`Attribute '${attrName}' is not handled, change that.`)
 		}
@@ -73,7 +77,7 @@ class UIImageInput extends HTMLElement{
 	}
 
 	_updateRender(){
-		this.$imageContainer.hidden = false;
+		this.$imageContainer.hidden = !this.preview;
 		this.$image.src = this.src;
 	}
 
@@ -82,6 +86,10 @@ class UIImageInput extends HTMLElement{
 
 	get src(){return this._src;}
 	set src(value){ this._src = value; }
+
+	get preview(){return this._preview;}
+	set preview(value){ this._preview = value; }
+
 
 	disconnectedCallback() {
 		console.log('disconnected');

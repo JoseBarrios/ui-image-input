@@ -9,26 +9,27 @@ class UIImageInput extends HTMLElement{
     super();
 		const view = document.importNode(uiImageInputTemplate.content, true);
 		//LIGHT DOM
-		//this.appendChild(view);
+		this.appendChild(view);
+
 		//SHADOW DOM
-		this.shadowRoot = this.attachShadow({mode: 'open'});
-		this.shadowRoot.appendChild(view);
+		//this.shadowRoot = this.attachShadow({mode: 'open'});
+		//this.shadowRoot.appendChild(view);
 		this.connected = false;
 	}
 
  connectedCallback() {
 	 this.connected = true;
 	 //SHADOW ROOT
-	 this.$input = this.shadowRoot.querySelector('#input');
-	 this.$image = this.shadowRoot.querySelector('#image');
-	 this.$imageContainer = this.shadowRoot.querySelector('.container');
-	 this.$imageContainer.hidden = true;
+	 //this.$input = this.shadowRoot.querySelector('#input');
+	 //this.$image = this.shadowRoot.querySelector('#image');
+	 //this.$imageContainer = this.shadowRoot.querySelector('.container');
+	 //this.$imageContainer.hidden = true;
 
 	 //LIGHT DOM
-	 //this.$input = this.querySelector('#input');
-	 //this.$image = this.querySelector('#image');
-	 //this.$imageContainer = this.querySelector('.container');
-	 //this.$imageContainer.hidden = true;
+	 this.$input = this.querySelector('.ui-image-input-view-input');
+	 this.$image = this.querySelector('.ui-image-input-view-image');
+	 this.$imageContainer = this.querySelector('.ui-image-input-view-container');
+	 this.$imageContainer.hidden = true;
 
 	 this.$image.addEventListener('click', e => {
 		 e.preventDefault();
@@ -76,8 +77,8 @@ class UIImageInput extends HTMLElement{
 		this.$image.src = this.src;
 	}
 
-	get shadowRoot(){return this._shadowRoot;}
-	set shadowRoot(value){ this._shadowRoot = value}
+	//get shadowRoot(){return this._shadowRoot;}
+	//set shadowRoot(value){ this._shadowRoot = value}
 
 	get src(){return this._src;}
 	set src(value){ this._src = value; }

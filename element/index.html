@@ -4,7 +4,7 @@
 
 
 	<style>
-		input {
+		.ui-image-input-view-input {
 			border: 1px solid #a9a9a9;
 			height:44px;
 			width:100%;
@@ -16,13 +16,13 @@
 			cursor:pointer;
 		}
 
-		.container {
+		.ui-image-input-view-container {
 			position: relative;
 			width: 100%;
 			cursor:pointer;
 		}
 
-		.image {
+		.ui-image-input-view-image {
 			border: 1px solid #a9a9a9;
 			opacity: 1;
 			width:calc(100% - 26px);
@@ -38,10 +38,10 @@
 	</style>
 
 
-	<input id="input" type="file" accept="image/*"/>
+	<input class="ui-image-input-view-input" type="file" accept="image/*"/>
 
-	<div class="container">
-		<img id="image" class="image">
+	<div class="ui-image-input-view-container">
+		<img class="ui-image-input-view-image">
 	</div>
 
 </template>

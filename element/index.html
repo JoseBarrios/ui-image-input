@@ -1,0 +1,50 @@
+<script src="https://static.filestackapi.com/v3/filestack.js"></script>
+
+<template id="ui-image-input-view">
+
+
+	<style>
+		input {
+			border: 1px solid #a9a9a9;
+			height:44px;
+			width:100%;
+			font-size:1em;
+			padding:12px;
+			border: 1px solid #a9a9a9;
+			margin-top:5px;
+			font-size:1em;
+			cursor:pointer;
+		}
+
+		.container {
+			position: relative;
+			width: 100%;
+			cursor:pointer;
+		}
+
+		.image {
+			border: 1px solid #a9a9a9;
+			opacity: 1;
+			width:calc(100% - 26px);
+			height: auto;
+			font-size:1em;
+			padding:12px;
+			margin-top:5px;
+			display: block;
+			transition: .5s ease;
+			backface-visibility: hidden;
+		}
+
+	</style>
+
+
+	<input id="input" type="file" accept="image/*"/>
+
+	<div class="container">
+		<img id="image" class="image">
+	</div>
+
+</template>
+
+<!--<script type="text/javascript" src="ui-image-input-data-controller.js"> </script>-->
+<script type="text/javascript" src="ui-image-input-view-controller.js"> </script>

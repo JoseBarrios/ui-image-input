@@ -1,0 +1,17 @@
+<script src='https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.0.1/webcomponents-lite.js'></script>
+
+<link rel='import' href='../element/index.html'>
+
+<body style="background-color:fafafa;">
+	<h1>IMAGE INPUT </h1>
+  <div style="width:20%;background-color:white">
+		<ui-image-input></ui-image-input>
+  </div>
+</body>
+
+<script>
+let imageInput = document.querySelector('ui-image-input');
+imageInput.addEventListener('update', function(e){
+	console.log('TEST UPDATED EVENT', e.detail)
+})
+</script>

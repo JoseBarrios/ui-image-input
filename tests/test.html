@@ -4,15 +4,13 @@
 
 <body style="background-color:lightGray;">
 	<h1>IMAGE INPUT </h1>
-  <div style="width:20%;background-color:red;height:100%">
-		<ui-image-input></ui-image-input>
-		<ui-image-input preview="true"></ui-image-input>
-  </div>
+	<ui-image-input></ui-image-input>
+	<ui-image-input preview="true"></ui-image-input>
 </body>
 
 <script>
-let imageInput = document.querySelector('ui-image-input');
-imageInput.addEventListener('update', function(e){
+	let imageInput = document.querySelector('ui-image-input');
+	imageInput.addEventListener('update', function(e){
 	console.log('TEST UPDATED EVENT', e.detail)
 })
 </script>
